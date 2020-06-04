@@ -1,0 +1,30 @@
+﻿
+@model Calculadora.Web.Models.CalculadoraModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Calculadora", FormMethod.Get))
+{
+    <label>Primeiro Número:</label>
+    @Html.TextBoxFor(p => p.PrimeiroNumero)
+
+    <label>Segundo Número:</label>
+    @Html.TextBoxFor(p => p.SegundoNumero)
+
+    <label>Operação:</label>
+    <select name="Operacao">
+        <option value="0">Adição</option>
+        <option value="1">Subtraççao</option>
+        <option value="2">Multiplicação</option>
+        <option value="3">Divisão</option>
+    </select>
+
+    <input type="submit" value="Calcular!" name="btnCalcular" />
+
+    <label>Resultado:</label>
+    @Html.TextBoxFor(p => p.Resultado, new { disabled = "disableds" })
+}
